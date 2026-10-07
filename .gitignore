@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.log
+
+# Only the example file is committed; real keys stay local
+.env
+.env.*
+!.env.example
+
+*serviceAccount*.json
+*firebase-adminsdk*.json
+.firebase/
+
+bin/
+obj/
+.vs/
+*.user
+
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
