@@ -2,11 +2,16 @@ import vendorCreditLogo from "../assets/vendorcredit-logo.svg";
 
 type BrandMarkProps = {
   surface: "dark" | "light";
+  size?: "regular" | "large";
 };
 
-export function BrandMark({ surface }: BrandMarkProps) {
+export function BrandMark({ surface, size = "regular" }: BrandMarkProps) {
   const logo = (
-    <img src={vendorCreditLogo} alt="VendorCredit" className="h-7 w-auto" />
+    <img
+      src={vendorCreditLogo}
+      alt="VendorCredit"
+      className={`${size === "large" ? "h-16" : "h-7"} w-auto`}
+    />
   );
 
   if (surface === "dark") {

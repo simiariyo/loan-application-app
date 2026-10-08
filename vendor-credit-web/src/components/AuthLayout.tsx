@@ -16,11 +16,17 @@ export function AuthLayout({
 }: AuthLayoutProps) {
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
-      <aside className="hidden bg-brand p-12 lg:flex lg:flex-col lg:justify-between">
-        <BrandMark surface="dark" />
-        <p className="max-w-sm text-lg text-white/80">
-          Apply for a business loan and track every application in one place.
-        </p>
+      <aside className="relative hidden overflow-hidden bg-brand p-12 lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-6 lg:text-center">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(circle,rgb(255_255_255/0.22)_1.5px,transparent_1.5px)] bg-size-[18px_18px] mask-[radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+        />
+        <div className="relative flex flex-col items-center gap-6">
+          <BrandMark surface="dark" size="large" />
+          <p className="max-w-sm text-lg text-white/80">
+            Apply for a business loan and track every application in one place.
+          </p>
+        </div>
       </aside>
       <main className="flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-md space-y-8">
