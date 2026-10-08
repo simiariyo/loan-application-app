@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /loanApplications/{loanId} {
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.status == "pending"
+        && request.resource.data.amount is int
+        && request.resource.data.amount > 0
+        && request.resource.data.termMonths is int
+        && request.resource.data.termMonths > 0
+        && request.resource.data.purpose in
+          ["Business", "Education", "Medical", "Personal", "Home improvement"];
+
+      // Editing is out of scope without the .NET API, so records are read-only.
+      allow update, delete: if false;
+    }
+  }
+}
