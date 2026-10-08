@@ -17,7 +17,7 @@ export function AuthLayout({
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
       <aside className="hidden bg-brand p-12 lg:flex lg:flex-col lg:justify-between">
-        <BrandMark surface="light" />
+        <BrandMark surface="dark" />
         <p className="max-w-sm text-lg text-white/80">
           Apply for a business loan and track every application in one place.
         </p>
@@ -25,7 +25,7 @@ export function AuthLayout({
       <main className="flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-md space-y-8">
           <div className="lg:hidden">
-            <BrandMark surface="dark" />
+            <BrandMark surface="light" />
           </div>
           <header className="space-y-2">
             <h1 className="text-3xl font-semibold tracking-tight text-brand">

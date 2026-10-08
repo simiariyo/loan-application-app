@@ -4,6 +4,7 @@ type TextFieldProps = ComponentProps<"input"> & {
   id: string;
   label: string;
   error?: string;
+  leading?: ReactNode;
   trailing?: ReactNode;
 };
 
@@ -11,6 +12,7 @@ export function TextField({
   id,
   label,
   error,
+  leading,
   trailing,
   ...inputProps
 }: TextFieldProps) {
@@ -22,11 +24,16 @@ export function TextField({
         {label}
       </label>
       <div className="relative">
+        {leading && (
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-500">
+            {leading}
+          </div>
+        )}
         <input
           id={id}
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? errorId : undefined}
-          className={`w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 placeholder:text-slate-400 focus:border-brand focus:ring-2 focus:ring-brand/20 focus:outline-none aria-invalid:border-red-600 ${trailing ? "pr-11" : ""}`}
+          className={`w-full rounded-lg border border-slate-300 bg-white py-2.5 placeholder:text-slate-400 focus:border-brand focus:ring-2 focus:ring-brand/20 focus:outline-none aria-invalid:border-red-600 ${leading ? "pl-9" : "pl-3.5"} ${trailing ? "pr-11" : "pr-3.5"}`}
           {...inputProps}
         />
         {trailing && (
