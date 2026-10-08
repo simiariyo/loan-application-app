@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #00315a;
+  --color-accent: #09e47c;
+  --color-accent-hover: #07c96d;
+  --color-canvas: #f6f7f8;
+}
+
+body {
+  @apply bg-canvas text-slate-900 antialiased;
+}
