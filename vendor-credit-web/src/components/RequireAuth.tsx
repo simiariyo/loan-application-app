@@ -5,7 +5,7 @@ export function RequireAuth() {
   const { user, isCheckingAuth } = useAuth();
 
   if (isCheckingAuth) {
-    return <p className="p-8 text-gray-600">Checking your session...</p>;
+    return <p className="p-8 text-slate-600">Checking your session...</p>;
   }
   if (!user) {
     return <Navigate to="/sign-in" replace />;
